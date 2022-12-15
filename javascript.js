@@ -1,5 +1,6 @@
 const addBtn = document.querySelector("#addBtn");
 const popUp = document.querySelector("#addBookModal");
+const overlay = document.querySelector("#overlay");
 const books = document.querySelector("#books");
 
 const myLibrary = [];
@@ -12,6 +13,8 @@ const Book = function(title, author, pages){
 
 addBtn.addEventListener("click", ()=> {
     popUp.classList.add("active");
+    overlay.classList.add("active");
+
 })
 
 // PopUp AddBook Forms 
@@ -59,6 +62,18 @@ function createBook(book){
     //book id from array
     const idBook = myLibrary.findIndex(x => x.title === book.title)
 
+    readBtn.addEventListener("click", () => {
+        if(readBtn.textContent == "Read"){
+            bookDiv.classList.remove("red");
+            bookDiv.classList.add("green");
+            readBtn.innerHTML="Unread";
+        } else if (readBtn.textContent == "Unread"){
+            bookDiv.classList.remove("green");
+            bookDiv.classList.add("red");
+            readBtn.innerHTML="Read";
+
+    }});
+
 
     removeBtn.addEventListener("click", () => {
         myLibrary.splice(idBook, 1);
@@ -77,6 +92,7 @@ function checkBookExist(book){
         myLibrary.push(book)
         createBook(book);
         popUp.classList.remove("active");
+        overlay.classList.remove("active");
         document.querySelector("#addBookForm").reset()
     }
         
@@ -87,10 +103,13 @@ function checkBookExist(book){
 
 const submitBtn = document.querySelector("#submitBtn");
 
-submitBtn.addEventListener("click", () => {
-
+// submitBtn.addEventListener("submit");
+submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     const book = getBook();
     checkBookExist(book);
     
 
-})
+});
+
+
