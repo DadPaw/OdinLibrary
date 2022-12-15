@@ -78,6 +78,7 @@ function createBook(book){
     removeBtn.addEventListener("click", () => {
         myLibrary.splice(idBook, 1);
         bookDiv.remove();
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
         });
 
 }
@@ -91,6 +92,7 @@ function checkBookExist(book){
     } else {
         myLibrary.push(book)
         createBook(book);
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
         popUp.classList.remove("active");
         overlay.classList.remove("active");
         document.querySelector("#addBookForm").reset()
@@ -103,13 +105,22 @@ function checkBookExist(book){
 
 const submitBtn = document.querySelector("#submitBtn");
 
-// submitBtn.addEventListener("submit");
-submitBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+
+submitBtn.addEventListener("click", () => {
+
     const book = getBook();
     checkBookExist(book);
     
 
 });
+
+
+// function addBooka(){ 
+
+//     const book = getBook();
+//     checkBookExist(book);
+    
+
+// }
 
 
