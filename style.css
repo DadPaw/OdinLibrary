@@ -1,0 +1,99 @@
+:root{
+    --header-color: rgb(161, 219, 161);
+    --books-color: #f0eef1;
+    --box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    --border-radius: 8px;
+
+}
+
+body {
+    /* font */
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    word-wrap: break-word;
+
+    /* website settings */
+    margin-bottom: 100px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #header{
+    /* colors */
+    background-color: var(--header-color);
+    /* color: rgb(255, 255, 255); */
+
+    /* model */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    /* header dimensions */
+    min-height: 10vh;
+    box-shadow: var(--shadow);
+
+
+  }
+
+  #books{
+    background-color: var(--books-color);
+    height: 85vh;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: var(--border-radius);
+    background-color: white;
+    border: 1px solid white;
+    margin: 3px;
+    box-shadow: var(--box-shadow);
+
+  }
+
+  p { 
+    font-weight: bold;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .popup > form > p { color: red;}
+
+  .book > p {
+    text-transform: capitalize;
+    
+  }
+  
+
+
+
+  .popup {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    /* padding: var(--spacing-lg); */
+    /* border-radius: var(--border-radius); */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--header-color);
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s ease-in-out;
+  }
+
+  
+  .popup.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
