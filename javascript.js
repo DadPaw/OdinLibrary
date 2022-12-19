@@ -3,7 +3,20 @@ const popUp = document.querySelector("#addBookModal");
 const overlay = document.querySelector("#overlay");
 const books = document.querySelector("#books");
 
-const myLibrary = [];
+let myLibrary = [];
+
+function getLocalStorage(){
+    let local = JSON.parse(localStorage.getItem("myLibrary"));
+    myLibrary = local;
+    local.forEach(element => console.log(createBook(element)));
+    
+    console.log(local); 
+}
+
+getLocalStorage();
+
+
+
 
 const Book = function(title, author, pages){
     this.title = title;
@@ -100,6 +113,10 @@ function checkBookExist(book){
         
 }
 
+// function getBookFromLocalStorage(){
+    // 
+// }
+
 
 
 
@@ -113,6 +130,8 @@ submitBtn.addEventListener("click", () => {
     
 
 });
+
+
 
 
 // function addBooka(){ 
