@@ -5,12 +5,13 @@ const books = document.querySelector("#books");
 
 let myLibrary = [];
 
+
 function getLocalStorage(){
-    let local = JSON.parse(localStorage.getItem("myLibrary"));
-    myLibrary = local;
-    local.forEach(element => console.log(createBook(element)));
-    
-    console.log(local); 
+    if(localStorage.getItem("myLibrary")!=null){
+        let local = JSON.parse(localStorage.getItem("myLibrary"));
+        myLibrary = local;
+        local.forEach(element => console.log(createBook(element)));
+    }
 }
 
 getLocalStorage();

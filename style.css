@@ -19,6 +19,15 @@ body {
     padding: 0px;
   }
 
+  .button {
+    transition-duration: 0.4s;
+  }
+
+  .button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
   #header{
     /* colors */
     background-color: var(--header-color);
